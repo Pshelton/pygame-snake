@@ -75,9 +75,9 @@ def snake_ate_food(snake, food):
     food - 2-tuple representing the position in the grid of the food
     This function should return True if the head of the snake is in the same position as food.
     """
-    for grid in row:
-        for position in grid:
-            if snake[0] == food[0]:
+    for row_index in grid:
+        for position in row:
+            if snake[0] == food(row_index[0][0]):
                 return True
     return False
 
@@ -86,7 +86,10 @@ def snake_ran_out_of_bounds(snake):
     snake - list of 2-tuples representing the positions of each snake segment
     Note that the grid is GRID_WIDTH cells wide and GRID_HEIGHT cells high.
     """
-    
+    for row_index in range (len(GRID_WIDTH, GRID HEIGHT)):
+        for col_index in range(len(grid[row_index])):
+            if snake[row_index][col_index] < 30:
+                return True
     return False
 
 def snake_intersected_body(snake):
@@ -95,6 +98,10 @@ def snake_intersected_body(snake):
     The snake ran into itself if the position of the head is the same as the position
     of any of its body segments.
     """
+    for row_index in range(len(snake[0], snake[-1]):
+        for col_index in range len(snake[row_index]):
+            if snake[0] == snake[row_index][col_index]:
+            return True
     return False
 
 def get_score(snake):
@@ -103,13 +110,14 @@ def get_score(snake):
     The user earns 10 points for each of the segments in the snake.
     For example, if the snake has 25 segments, the score is 250.
     """
-    return 0
+    return ((len(snake)-1) * 10)
 
 def get_game_over_text(score):
     """Returns the text to draw on the screen after the game is over.
     This text should contain 'Game Over' as well as the score.
     score - integer representing the current score of the game.
     """
+    print('Game Over', get_score)
     return 'Game Over.'
 
 def get_snake_speed(snake):
@@ -118,7 +126,12 @@ def get_snake_speed(snake):
     The speed at the beginning of the game should be 5. Once the snake has eaten 10 pieces of food,
     the speed of the game should increase (by how much is up to you).
     """
-    return 5
+    speed = 5
+    for index in range((len(snake))-1):
+        for segment in snake:
+            if (snake[index] % 10) == 0:
+                speed += 5
+    return speed
 
 def move_snake(snake, direction, food):
     """Moves the snake one space in the direction specified and returns whether food was eaten.
