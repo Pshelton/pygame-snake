@@ -60,13 +60,13 @@ def create_food_position(x,y):
     The first element is the x position. Must be an int between 0 and GRID_WIDTH - 1, inclusively.
     The second element is the y position. Must be an int between 0 and GRID_HEIGHT - 1, inclusively.
     """
-        for grid in row:
-            for element in grid:
-                while element > 0:
-                    x = random.randint(grid_width[- 1])
-                    y = random.randint(grid_height[- 1])
-                    food_position = [(x,y)]
-        return (food_position)
+    for grid in row:
+        for element in grid:
+            while element > 0:
+                x = random.randint(grid_width[- 1])
+                y = random.randint(grid_height[- 1])
+                food_position = [(x,y)]
+    return (food_position)
     
 
 def snake_ate_food(snake, food):
@@ -86,7 +86,7 @@ def snake_ran_out_of_bounds(snake):
     snake - list of 2-tuples representing the positions of each snake segment
     Note that the grid is GRID_WIDTH cells wide and GRID_HEIGHT cells high.
     """
-    for row_index in range (len(GRID_WIDTH, GRID HEIGHT)):
+    for row_index in range (len(GRID_WIDTH, GRID_HEIGHT)):
         for col_index in range(len(grid[row_index])):
             if snake[row_index][col_index] < 30:
                 return True
@@ -98,10 +98,10 @@ def snake_intersected_body(snake):
     The snake ran into itself if the position of the head is the same as the position
     of any of its body segments.
     """
-    for row_index in range(len(snake[0], snake[-1]):
-        for col_index in range len(snake[row_index]):
+    for row_index in range(len(snake[0]), (snake[-1])):
+        for col_index in range (len(snake[row_index])):
             if snake[0] == snake[row_index][col_index]:
-            return True
+                return True
     return False
 
 def get_score(snake):
